@@ -1,0 +1,34 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'Source Code Pro', 'Fira Code' ,Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "eslint.alwaysShowStatus": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.compactFolders": false,
+  "workbench.startupEditor": "welcomePage",
+  "editor.linkedEditing": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "prettier.printWidth": 150,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.colorTheme": "One Dark Pro",
+
+  "workbench.colorCustomizations": {
+    "tab.activeBorder": "#ff874f",
+    "tab.activeBackground": "#2c2b3a"
+  },
+  "prettier.proseWrap": "always"
+}
