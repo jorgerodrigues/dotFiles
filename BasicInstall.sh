@@ -62,9 +62,12 @@ echo "Disable empty trash warning"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-echo "Setting up the dock"
-# Set the icon size of Dock items to 16 pixels
-defaults write com.apple.dock tilesize -int 16
+echo "Setting up the Dock and Finder"
+# Set the icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
+
+# Set the dock to be on the right side
+defaults write com.apple.dock orientation -string "right"
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -82,3 +85,12 @@ defaults write com.apple.dock autohide -bool true
 # See: https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
+# Finder: show hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+echo "Restarting Dock and Finder to apply the changes"
+# Applying changes
+killall Dock
+killall Finder
+
+echo "Hey $(whoami), you are all set!"
