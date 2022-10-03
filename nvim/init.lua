@@ -1,25 +1,31 @@
-
 require('plugins')
+require('keymaps')
 local set = vim.opt
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
-
+vim.opt.termguicolors = true
 
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 vim.opt.expandtab = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 20
 vim.opt.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
 set.expandtab = true
 set.smartindent = true
-
 set.guicursor = ""
 set.number = true
+vim.api.nvim_command("set noswapfile")
+
+require'colorizer'.setup({
+  '*'; -- Highlight all files, but customize some others.
+  '!vim'; -- Exclude vim from highlighting.
+  -- Exclusion Only makes sense if '*' is specified!
+})
 
 local dracula = require'lualine.themes.dracula'
 require('lualine').setup({
@@ -43,7 +49,7 @@ require("tokyonight").setup({
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
     sidebars = "dark", -- style for sidebars, see below
-    floats = "dark", -- style for floating windows
+    floats = "transparent", -- style for floating windows
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -91,6 +97,36 @@ ts.setup {
     enable = true,
   },
 }
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  }
+}
+
+local null_ls = require("null-ls")
+local eslint = require("eslint")
+
+null_ls.setup()
+
+eslint.setup({
+  bin = 'eslint', -- or `eslint_d`
+  code_actions = {
+    enable = true,
+    apply_on_save = {
+      enable = true,
+      types = { "problem" }, -- "directive", "problem", "suggestion", "layout"
+    },
+    disable_rule_comment = {
+      enable = true,
+      location = "separate_line", -- or `same_line`
+    },
+  },
+  diagnostics = {
+    enable = true,
+    report_unused_disable_directives = false,
+    run_on = "type", -- or `save`
+  },
+})
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
