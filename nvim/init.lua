@@ -104,17 +104,16 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local null_ls = require("null-ls")
-local eslint = require("eslint")
-
 null_ls.setup()
 
+local eslint = require("eslint")
 eslint.setup({
-  bin = 'eslint', -- or `eslint_d`
+  bin = 'eslint_d', -- or `eslint_d`
   code_actions = {
     enable = true,
     apply_on_save = {
       enable = true,
-      types = { "problem" }, -- "directive", "problem", "suggestion", "layout"
+      types = { "problem",  "layout", "directive"}, -- "directive", "problem", "suggestion", "layout"
     },
     disable_rule_comment = {
       enable = true,
