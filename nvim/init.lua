@@ -104,27 +104,13 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local null_ls = require("null-ls")
-null_ls.setup()
-
-local eslint = require("eslint")
-eslint.setup({
-  bin = 'eslint_d', -- or `eslint_d`
-  code_actions = {
-    enable = true,
-    apply_on_save = {
-      enable = true,
-      types = { "problem",  "layout", "directive"}, -- "directive", "problem", "suggestion", "layout"
-    },
-    disable_rule_comment = {
-      enable = true,
-      location = "separate_line", -- or `same_line`
-    },
-  },
-  diagnostics = {
-    enable = true,
-    report_unused_disable_directives = false,
-    run_on = "type", -- or `save`
-  },
+null_ls.setup({
+  debug = false,
+  sources = {
+  null_ls.builtins.diagnostics.eslint_d,
+  null_ls.builtins.code_actions.eslint_d,
+  null_ls.builtins.formatting.eslint_d 
+  }
 })
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

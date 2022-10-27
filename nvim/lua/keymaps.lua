@@ -7,7 +7,7 @@ vim.g.mapleader = "-"
 -- Normal Mode --
 keymap("n", "<S-j>", ":m+<cr>", opts)
 keymap("n", "<S-b>", ":m .-2<cr>", opts)
-
+keymap("n", "<Space><Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-u>", ":redo<cr>", opts)
 
 -- Tabs

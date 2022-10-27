@@ -38,5 +38,4 @@ return require('packer').startup(function(use)
   use "nvim-telescope/telescope-file-browser.nvim"
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'MunifTanjim/eslint.nvim'
 end)

@@ -94,11 +94,6 @@ _G.packer_plugins = {
     path = "/Users/jorgelopesrodrigues/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["eslint.nvim"] = {
-    loaded = true,
-    path = "/Users/jorgelopesrodrigues/.local/share/nvim/site/pack/packer/start/eslint.nvim",
-    url = "https://github.com/MunifTanjim/eslint.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/jorgelopesrodrigues/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
