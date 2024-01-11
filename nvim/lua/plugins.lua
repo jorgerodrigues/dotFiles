@@ -5,12 +5,20 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    })
-  use 'folke/tokyonight.nvim'
+    "nvimdev/lspsaga.nvim",
+    after = 'nvim-lspconfig',
+    config = function()
+        require("lspsaga").setup({})
+    end,
+    requires = {
+        {"nvim-tree/nvim-web-devicons"},
+        --Please make sure you install markdown and markdown_inline parser
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+})
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-  use     "williamboman/mason.nvim"
+  use 'xiyaowong/transparent.nvim' -- makes the background transparent
+  use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use {
    'nvim-lualine/lualine.nvim',
@@ -38,4 +46,26 @@ return require('packer').startup(function(use)
   use "nvim-telescope/telescope-file-browser.nvim"
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'jose-elias-alvarez/null-ls.nvim'
+
+  -- AI RELATED PLUGINS --
+  use 'github/copilot.vim'
+  
+  use({
+  "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+})
+
+  -- THEMES --
+  
+  use 'folke/tokyonight.nvim'
+  use 'catppuccin/vim'
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
+
 end)

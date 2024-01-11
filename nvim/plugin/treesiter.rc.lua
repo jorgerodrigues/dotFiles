@@ -22,6 +22,11 @@ ts.setup {
     "html",
     "lua",
     "prisma",
+    "markdown",
+    "javascript",
+    "typescript",
+    "bash",
+    "go",
     "graphql"
   },
   autotag = {

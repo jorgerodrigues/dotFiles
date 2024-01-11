@@ -25,7 +25,9 @@ telescope.setup {
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
     },
     file_browser = {
-      theme = "dropdown",
+      hidden = true,
+      grouped = true,
+      theme = "ivy",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -59,7 +61,7 @@ vim.keymap.set('n', '<Space>f',
 vim.keymap.set('n', ';r', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '\\\\', function()
+vim.keymap.set('n', ';b', function()
   builtin.buffers()
 end)
 vim.keymap.set('n', '<Space>h', function()
@@ -73,6 +75,9 @@ vim.keymap.set('n', ';e', function()
 end)
 vim.keymap.set('n', '<Space>g', function()
   builtin.git_files()
+end)
+vim.keymap.set('n', '<Space>r', function() 
+  builtin.lsp_references()
 end)
 vim.keymap.set("n", "<Space>b", function()
   telescope.extensions.file_browser.file_browser({
