@@ -22,7 +22,7 @@ require("lspsaga").setup({
     sign = true,
     sign_priority = 40,
     virtual_text = true,
-    debounce = 500,
+    debounce = 10,
   },
     hover = {
     max_width = 0.6,
